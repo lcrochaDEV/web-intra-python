@@ -23,34 +23,35 @@ class ControlPath:
             raise Exception("O arquivo criado com sucesso.")
 
     @classmethod
-    def __readFile(self, format=False): #LEITURA
+    def __readFile(self): #LEITURA DO ARQUIVO
        with open('./data/database.json', 'r', encoding='utf-8-sig') as readFile:
             try:
                 return json.load(readFile)
-            except json.JSONDecodeError:
+            except:
                 print ("Será criado uma nova lista")
                 return readFile.read() 
             
     @classmethod
-    def __writeFile(self, data): #ESCREVER
+    def __writeFile(self, data): #ESCRITA NO ARQUIVO
         with open('./data/database.json', 'w') as writeFile:
             writeFile.write(json.dumps(data, indent=4))
 
+
+    #RECRIA PASTA E ARQUIVO SE FOREM DELETADOS
     @classmethod
     def data(self, data):
-        try:
-            with not self.__createdir() and not self.__cratefile():
-               pass
-        except:
-            verify = self.checkList(data=data)
-            arrFilter = self.filterArr(data=data)
-            if verify != None and arrFilter == None:
-                self.__writeFile(verify)
-            pass
+        if os.path.isdir('data') == False or os.path.isfile('./data/database.json') == False:
+            self.__createdir() or self.__cratefile()
 
+        verify = self.checkList(data=data)
+        arrFilter = self.filterArr(data=data)
+        if verify != None and arrFilter == None:
+            self.__writeFile(verify)
+        pass
+ 
     @classmethod
-    def checkList(self, data=None): #VERIFICA SE EXITE DADOS NO ARRAY
-        #VEIRFICA SE EXITE DADOS
+    def checkList(self, data=None): #VERIFICA SE EXISTE DADOS NO ARRAY
+        #VEIRFICA SE EXISTE DADOS
         ArrayList = []
         fileJson = self.__readFile()
         if type(fileJson) == str:
@@ -59,13 +60,24 @@ class ControlPath:
         if type(fileJson) == list:
             fileJson.append(data)
             return fileJson
+    '''   
+    @classmethod
+    def deleta_data(self, data=None):
+        verify = self.filterElement(data)
+        fileJson = self.__readFile()
+        if (verify != None):
+            print(fileJson)
+            print(data)
+        pass
+    '''
+
 
     @classmethod
-    def filterArr(self, data=None): #LEITURA
+    def filterArr(self, data=None): #FILTER SE EXISTEM DADOS JÁ CADASTRADOS NO ARRAY
         with open('./data/database.json', 'r') as readFile:
             try:
                 fileJson = json.load(readFile)
-                if data != None: #FILTRA SE EXITE ARRAY IGUAL
+                if data != None: #FILTRA SE EXISTE ARRAY IGUAL
                     filter = [arr for arr in fileJson if arr == data]
                     if len(filter) > 0:
                         return fileJson
@@ -73,48 +85,22 @@ class ControlPath:
                 return None
         
     @classmethod
-    def filterElement(self, data=None): #LEITURA
+    def filterElement(self, data=None): #FILTER VERIFICA SE EXISTE DADOS NO ARRAY
         with open('./data/database.json', 'r') as readFile:
             fileJson = json.load(readFile)
-            if data != None: #FILTRA SE EXITE ELEMENTO IGUAL NO ARRAY
+            if data != None: #FILTRA SE EXISTE ELEMENTO IGUAL NO ARRAY
                 for key in fileJson:
                     for value in key:
                         if key[value] == data:
                             return key[value]
-
-
-
-
 '''
-        with open('./data/database.json', 'r') as readFile:
-                if readFile == True:
-                    fileJson = json.load(readFile)
-                    print(readFile)
-                else:
-                    return False
-'''
-
-'''
-            if readFile == False:
-            fileJson = json.load(readFile)
-                for x in fileJson:
-                    if data['site'] == x['site']:
-                        print('Existe dados')
-            if data != None: #FILTRA SE EXITE ELEMENTO IGUAL
-                for x in fileJson:
+    @classmethod
+    def filterValue(self, data=None):
+        if data != None: #FILTRA SE EXISTE ELEMENTO IGUAL
+                for x in self.__readFile():
                     if data['site'] == x['site']:
                         print('Existe dados')
                     else:
                         return True
-            elif filterArr != None: #FILTRA SE EXITE ARRA IGUAL
-                for x in fileJson:
-                    return x
-            elif filterElement != None: #FILTRA SE EXITE ELEMENTO IGUAL NO ARRAY
-                for dataJson in fileJson:
-                    for value in dataJson:
-                        if dataJson[value] == filterElement:
-                            return dataJson[value]
-            else:
-                return False
-            
-'''         
+'''
+

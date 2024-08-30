@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": "1",
+        "site": "site233.com",
+        "url": "https://site112.com/gerador-nomes-pessoas",
+        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+    },
+    {
+        "id": "",
+        "site": "site233.com",
+        "url": "https://site112.com/gerador-nomes-pessoas",
+        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+    }
+]

@@ -19,8 +19,7 @@ data = {
 }
 
 ControlPath.data(data=data)
-#verificadados = ControlPath.readFile(filterElement="site112.com")
-#print(verificadados)
+ControlPath.deleta_data(data="site233.com")
 
 
 app = FastAPI()
