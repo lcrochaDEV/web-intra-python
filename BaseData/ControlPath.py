@@ -1,3 +1,5 @@
+from random import random
+
 import os
 import json
 
@@ -33,9 +35,8 @@ class ControlPath:
             
     @classmethod
     def __writeFile(self, data): #ESCRITA NO ARQUIVO
-        with open('./data/database.json', 'w') as writeFile:
+        with open('./data/database.json', 'w', encoding='utf-8-sig') as writeFile:
             writeFile.write(json.dumps(data, indent=4))
-
 
     #RECRIA PASTA E ARQUIVO SE FOREM DELETADOS
     @classmethod
@@ -43,12 +44,12 @@ class ControlPath:
         if os.path.isdir('data') == False or os.path.isfile('./data/database.json') == False:
             self.__createdir() or self.__cratefile()
 
+        arrFilter = self.filterArr(item=data)
         verify = self.checkList(data=data)
-        arrFilter = self.filterArr(data=data)
         if verify != None and arrFilter == None:
             self.__writeFile(verify)
         pass
- 
+  
     @classmethod
     def checkList(self, data=None): #VERIFICA SE EXISTE DADOS NO ARRAY
         #VEIRFICA SE EXISTE DADOS
@@ -57,50 +58,43 @@ class ControlPath:
         if type(fileJson) == str:
             ArrayList.append(data)
             return ArrayList
-        if type(fileJson) == list:
+        else:
             fileJson.append(data)
             return fileJson
-    '''   
+    
     @classmethod
-    def deleta_data(self, data=None):
-        verify = self.filterElement(data)
+    def deleta_data(self, item=None): #DELETA DADOS NO ARRAY
         fileJson = self.__readFile()
-        if (verify != None):
-            print(fileJson)
-            print(data)
+        lst = self.filterElement(item)
+        print(lst)
+        if lst != None:
+            fileJson.remove(lst)
+            self.__writeFile(fileJson)
+        else:
+            print('Item não exste!')
         pass
-    '''
-
-
+        
+#listaStorage.splice(listaStorage.findIndex(itens => itens.username === username),1);
+    ##########SECTION FILTER##########
     @classmethod
-    def filterArr(self, data=None): #FILTER SE EXISTEM DADOS JÁ CADASTRADOS NO ARRAY
-        with open('./data/database.json', 'r') as readFile:
+    def filterArr(self, item=None): #FILTER SE EXISTEM DADOS JÁ CADASTRADOS NO ARRAY
             try:
-                fileJson = json.load(readFile)
-                if data != None: #FILTRA SE EXISTE ARRAY IGUAL
-                    filter = [arr for arr in fileJson if arr == data]
+                fileJson = self.__readFile()
+                if item != None: #FILTRA SE EXISTE ARRAY IGUAL
+                    filter = [arr for arr in fileJson if arr == item]
                     if len(filter) > 0:
                         return fileJson
             except:
                 return None
         
     @classmethod
-    def filterElement(self, data=None): #FILTER VERIFICA SE EXISTE DADOS NO ARRAY
-        with open('./data/database.json', 'r') as readFile:
-            fileJson = json.load(readFile)
-            if data != None: #FILTRA SE EXISTE ELEMENTO IGUAL NO ARRAY
-                for key in fileJson:
-                    for value in key:
-                        if key[value] == data:
-                            return key[value]
-'''
-    @classmethod
-    def filterValue(self, data=None):
-        if data != None: #FILTRA SE EXISTE ELEMENTO IGUAL
-                for x in self.__readFile():
-                    if data['site'] == x['site']:
-                        print('Existe dados')
-                    else:
-                        return True
-'''
+    def filterElement(self, item): #FILTER VERIFICA SE EXISTE DADOS NO ARRAY
+s
 
+    ##########SECTION RANDON NUMBER##########          
+    @classmethod
+    def randomNumber(self):
+        nunber = self.filterElement(int((random())*1000))
+        while nunber == True:
+            return int((random())*1000)
+        return int((random())*1000)

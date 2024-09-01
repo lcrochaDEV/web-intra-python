@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from ControlRequest.ClassRequest import Rotas
 from pydantic import BaseModel
-
+from ControlRequest.ClassRequest import Rotas
 from BaseData.ControlPath import ControlPath
 
 class ObjModel(BaseModel):
@@ -10,6 +9,8 @@ class ObjModel(BaseModel):
    url: str
    pathTag : str
 
+n = ControlPath.randomNumber()
+#print(n)
 
 data = {
     "id": "",
@@ -19,7 +20,7 @@ data = {
 }
 
 ControlPath.data(data=data)
-ControlPath.deleta_data(data="site233.com")
+ControlPath.deleta_data(item="site233.com2")
 
 
 app = FastAPI()
