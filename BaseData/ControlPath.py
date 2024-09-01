@@ -89,7 +89,13 @@ class ControlPath:
         
     @classmethod
     def filterElement(self, item): #FILTER VERIFICA SE EXISTE DADOS NO ARRAY
-s
+        fileJson = self.__readFile()
+        if item != None: #FILTRA SE EXISTE ELEMENTO IGUAL NO ARRAY
+            if type(item) == int or type(item) == str:
+                for lst in fileJson:
+                    for key in lst:
+                        if lst[key] == item:
+                            return lst
 
     ##########SECTION RANDON NUMBER##########          
     @classmethod
