@@ -44,37 +44,53 @@ class ControlPath:
         if os.path.isdir('data') == False or os.path.isfile('./data/database.json') == False:
             self.__createdir() or self.__cratefile()
 
-        arrFilter = self.filterArr(item=data)
-        verify = self.checkList(data=data)
+        arrFilter = self.filterArr(data)
+        verify = self.checkList(data)
         if verify != None and arrFilter == None:
             self.__writeFile(verify)
-        pass
-  
+      
     @classmethod
     def checkList(self, data=None): #VERIFICA SE EXISTE DADOS NO ARRAY
         #VEIRFICA SE EXISTE DADOS
         ArrayList = []
         fileJson = self.__readFile()
         if type(fileJson) == str:
-            ArrayList.append(data)
+            ArrayList.append(data) 
             return ArrayList
         else:
             fileJson.append(data)
             return fileJson
     
     @classmethod
-    def deleta_data(self, item=None): #DELETA DADOS NO ARRAY
+    def delete_data(self, item=None): #DELETA DADOS NO ARRAY
         fileJson = self.__readFile()
-        lst = self.filterElement(item)
-        print(lst)
+        lst = self.filterElement(item) #FILTRA POR NOME OU ID
         if lst != None:
             fileJson.remove(lst)
             self.__writeFile(fileJson)
         else:
-            print('Item não exste!')
+            print('Item inexistente!')
+
+    @classmethod
+    def update_data(self, id=None, data=None): #UPDATE DADOS NO ARRAY
+        new_list = self.filterElement(id) #FILTRA POR NOME OU ID
+        new_list[list(dict.keys(data))[0]] = list(dict.values(data))[0]
+        try:
+            if dict.keys(new_list) == dict.keys(new_list):
+                for l in dict.keys(new_list):
+                    if list(dict.keys(data))[0] == l:
+                        if self.filterArr(new_list) == None:
+                            self.delete_data(id)
+                            self.data(new_list)
+                            print('Atualizado com Sucesso!')
+                            pass
+                        else:
+                            print('Dado existente.')
+        except:
+            print('Item não encontado na lista.')
+
         pass
-        
-#listaStorage.splice(listaStorage.findIndex(itens => itens.username === username),1);
+
     ##########SECTION FILTER##########
     @classmethod
     def filterArr(self, item=None): #FILTER SE EXISTEM DADOS JÁ CADASTRADOS NO ARRAY

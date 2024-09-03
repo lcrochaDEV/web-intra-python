@@ -6,19 +6,13 @@
         "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
     },
     {
-        "id": 2,
-        "site": "site233.com2",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
-    },
-    {
-        "id": 3,
-        "site": "site233.com3",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
-    },
-    {
         "id": 4,
+        "site": "site233.com",
+        "url": "https://site112.com/gerador-nomes-pessoas",
+        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+    },
+    {
+        "id": 2,
         "site": "site233.com",
         "url": "https://site112.com/gerador-nomes-pessoas",
         "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
@@ -26,6 +20,12 @@
     {
         "id": "",
         "site": "site233.com",
+        "url": "https://site112.com/gerador-nomes-pessoas",
+        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+    },
+    {
+        "id": 3,
+        "site": "NovoSite.com.br",
         "url": "https://site112.com/gerador-nomes-pessoas",
         "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
     }

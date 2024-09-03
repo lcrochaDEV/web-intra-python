@@ -19,9 +19,20 @@ data = {
     "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
 }
 
-ControlPath.data(data=data)
-ControlPath.deleta_data(item="site233.com2")
+def methods(data:ObjModel):
+    ControlPath.data(data)
+    #ControlPath.delete_data(item="site233.com2")
+methods(data)
 
+class Update(BaseModel):
+    key: str
+    value: str
+
+update = {"site": "NovoSite.com.br"}
+
+def Up(id, update:Update):
+    ControlPath.update_data(id, update)
+Up(3, update)
 
 app = FastAPI()
 
