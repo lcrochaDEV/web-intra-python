@@ -6,7 +6,6 @@
 python -m venv .venv
 ```
 
-
 ### Ativação do ambiente virtual no Windows
 
 ```shell
@@ -45,7 +44,7 @@ deactivate
 ```
 ### Projeto em andamento
 
-Este projeto visa e automação, busca e armazenamento de dados, ele é chamdo por metodos CRUD onde ele verifica se existe esse dado já na base de dados JSON, caso não exista ele busca esses dados no site SMARTPLAN
+Este projeto visa automatizar, buscar e armazenamento de dados, ele é chamdo por metodos CRUD onde cada método verifica se existe esse dado já na base de dados JSON, caso não exista ele busca esses dados no site SMARTPLAN
 
 #### Envio de um unico comando por http://127.0.0.1:8000/host
 ```json
@@ -54,4 +53,9 @@ Este projeto visa e automação, busca e armazenamento de dados, ele é chamdo p
     "url": "https://site112.com/gerador-nomes-pessoas",
     "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
 }
+```
+
+#### Iniciando o servidor Uvincorn
+```shell
+uvicorn app:app --reload
 ```

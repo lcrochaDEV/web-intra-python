@@ -32,3 +32,4 @@ class ControllerAPI:
 			print(meuip.text)
 		except:
 			return f'Sem acesso ao Site {site}'
+		
