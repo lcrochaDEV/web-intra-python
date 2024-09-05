@@ -59,3 +59,40 @@ Este projeto visa automatizar, buscar e armazenamento de dados, ele é chamdo po
 ```shell
 uvicorn app:app --reload
 ```
+
+### FRONT-END
+#### CABEÇALHO FETCH
+
+```js
+var myHeaders = new Headers({
+    'Content-Type': 'application/json',
+});
+
+let bodyObj = {
+    site: "site112.com",
+    url: "https://site112.com/gerador-nomes-pessoas",
+    pathTag: "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+}
+
+let conectApi = async (url, obj) => {
+    var options = {
+      method: "POST",
+      body: JSON.stringify(obj),
+      headers: myHeaders,
+      mode: "cors",
+      cache: "default",
+    };
+
+    try{
+        const conexao = await fetch(url, options)
+        if(conexao.status === 200){
+            const openConexao = await conexao.json();
+            return openConexao;
+        } 
+    }catch(error){
+        console.log('Falha no link!')
+    }
+}
+
+conectApi('http://127.0.0.1:8000/host', bodyObj)
+```
