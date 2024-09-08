@@ -1,32 +1,12 @@
 ﻿[
     {
         "id": 1,
-        "site": "site233.com1",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+        "sitecode": "23550180",
+        "end": "Rua Oswaldo Costa Santa Cruz, Rio de Janeiro, RJ"
     },
     {
-        "id": 4,
-        "site": "site233.com",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
-    },
-    {
-        "id": 2,
-        "site": "site233.com",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
-    },
-    {
-        "id": "",
-        "site": "site233.com",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
-    },
-    {
-        "id": 3,
-        "site": "NovoSite.com.br",
-        "url": "https://site112.com/gerador-nomes-pessoas",
-        "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+        "id": 474,
+        "sitecode": "23550180",
+        "end": "Rua Oswaldo Costa Santa Cruz, Rio de Janeiro, RJ"
     }
 ]

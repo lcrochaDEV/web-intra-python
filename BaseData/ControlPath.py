@@ -1,5 +1,4 @@
 from random import random
-
 import os
 import json
 

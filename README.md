@@ -41,7 +41,13 @@ deactivate
 #pip install selenium
 #pip install python-dotenv
 #pip install fastapi
+#pip install "uvicorn[standard]" ou pip install "uvicorn[all]"
 ```
+#### Iniciando o servidor Uvincorn
+```shell
+uvicorn app:app --reload
+```
+
 ### Projeto em andamento
 
 Este projeto visa automatizar, buscar e armazenamento de dados, ele é chamdo por metodos CRUD onde cada método verifica se existe esse dado já na base de dados JSON, caso não exista ele busca esses dados no site SMARTPLAN
@@ -51,13 +57,10 @@ Este projeto visa automatizar, buscar e armazenamento de dados, ele é chamdo po
 {
     "site": "site112.com",
     "url": "https://site112.com/gerador-nomes-pessoas",
+    "pathInput": "",
+    "pathBtn": "",
     "pathTag": "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
 }
-```
-
-#### Iniciando o servidor Uvincorn
-```shell
-uvicorn app:app --reload
 ```
 
 ### FRONT-END
@@ -69,9 +72,11 @@ var myHeaders = new Headers({
 });
 
 let bodyObj = {
-    site: "site112.com",
-    url: "https://site112.com/gerador-nomes-pessoas",
-    pathTag: "//span[@class='d-table-cell v-align-middle lh-condensed pr-2']//strong"
+    site: '23550180',
+    url: 'https://www.siterastreio.com.br/cep/2355180',
+    pathInput: '//input[contains(text(), "")]',
+    pathBtn: '//div[1]/div/button',
+    pathTag: '/html/body/div/div[1]/main/div[2]/div[2]/div[2]/h2'
 }
 
 let conectApi = async (url, obj) => {
@@ -95,4 +100,14 @@ let conectApi = async (url, obj) => {
 }
 
 conectApi('http://127.0.0.1:8000/host', bodyObj)
+```
+
+
+#### Basede dados do arquivo .json
+```json
+{
+    "id": 1,
+    "sitecode": "",
+    "end": ""
+}
 ```

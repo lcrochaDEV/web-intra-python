@@ -26,7 +26,9 @@ def methodGet():
 class Itens(BaseModel):
    site: str
    url: str
-   pathTag : str
+   pathInput: str
+   pathBtn: str
+   pathTag: str
 
 
 @app.post("/host")

@@ -2,12 +2,14 @@ from selenium import webdriver;
 from selenium.webdriver.common.by import By;
 from datetime import datetime
 import time as time
-import re
+
+from BaseData.exec import OperatorClass
 
 class ControllerAPI:
 	@staticmethod
-	def varrerDados(site = None, url = None, pathTag = None):
+	def varrerDados(site = None, url = None, pathInput = None, pathBtn = None, pathTag = None):
 		try:
+			print('Varrer')
 			#options = webdriver.ChromeOptions()
 			#options.add_argument("--headless=new")
 			#driver = webdriver.Chrome(options=options)
@@ -28,8 +30,13 @@ class ControllerAPI:
 			data_e_hora_atuais = datetime.now()
 			data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
 			print(f'{site} {data_e_hora_em_texto}')
-			meuip = driver.find_element(By.XPATH, pathTag)
-			print(meuip.text)
+			driver.execute_script(f'document.querySelector("input").value = {site}')
+			driver.implicitly_wait(5) 
+			#xpathInput = driver.find_element(By.XPATH, pathInput)
+			xpathbtn = driver.find_element(By.XPATH, pathBtn).click()
+			xpathData = driver.find_element(By.XPATH, pathTag)
+			print(xpathData.text)
+			return OperatorClass.write(site, xpathData.text)	
 		except:
 			return f'Sem acesso ao Site {site}'
 		
