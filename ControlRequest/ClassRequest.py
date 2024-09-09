@@ -5,7 +5,8 @@ class Rotas:
     @staticmethod
     def methodPostIdCli(itens: list):
         try:
-            return ControllerAPI.varrerDados(itens.site, itens.url, itens.pathInput, itens.pathBtn, itens.pathTag)
+            request = ControllerAPI(itens.site, itens.url, itens.pathInput, itens.pathBtn, itens.pathTag)
+            return request.verificaDados()
         except:
             return 'Host não encontrado!'
 

@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from BaseData.ControlPath import ControlPath
-import json
 
 class ObjData(BaseModel):
     id: int
@@ -21,20 +20,21 @@ class OperatorClass():
     def update(objData:ObjData, id=False): # EDITAR
         if id == True:
             ControlPath.update_data(id, objData)
+            return 'Dado cadastrado com sucesso.'
         else:
             return "Necessário passar um ID e um Objeto"
 
-    @staticmethod
+    @classmethod
     def read(id, data):
         try:
-            ControlPath.filterElement(id or data)
+            return ControlPath.filterElement(id and data)
         except:
             return 'Dado não encontrado.'
 
-    @staticmethod
+    @classmethod
     def delete(id, data):
         try:
-            ControlPath.delete_data(id or data)
+            ControlPath.delete_data(id and data)
             return 'Dado deletado com sucesso'
         except:
             return 'Erro ao deletar'
