@@ -13,13 +13,13 @@ class ControllerAPI:
 		self.pathBtn = pathBtn
 		self.pathTag = pathTag
 
-	def verificaDados(self):
+	def verificarDados(self):
 		valor = OperatorClass.read(data=self.site)
 		if valor:
 			return valor
-		else:
-			self.__varrerDados()
-		
+		#else:
+		#	self.__varrerDados()
+			
 	def __varrerDados(self):
 		try:
 			print('Varrer')

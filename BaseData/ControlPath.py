@@ -110,8 +110,9 @@ class ControlPath:
                 for lst in fileJson:
                     for key in lst:
                         if lst[key] == item:
+                            print(lst)
                             return lst
-
+                        
     ##########SECTION RANDON NUMBER##########          
     @classmethod
     def randomNumber(self):

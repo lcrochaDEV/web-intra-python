@@ -6,7 +6,7 @@ class Rotas:
     def methodPostIdCli(itens: list):
         try:
             request = ControllerAPI(itens.site, itens.url, itens.pathInput, itens.pathBtn, itens.pathTag)
-            return request.verificaDados()
+            return request.verificarDados()
         except:
             return 'Host não encontrado!'
 

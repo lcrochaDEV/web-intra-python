@@ -25,16 +25,16 @@ class OperatorClass():
             return "Necessário passar um ID e um Objeto"
 
     @classmethod
-    def read(id, data):
+    def read(self, id=None, data=None):
         try:
-            return ControlPath.filterElement(id and data)
+            return ControlPath.filterElement(id or data)
         except:
             return 'Dado não encontrado.'
 
     @classmethod
-    def delete(id, data):
+    def delete(self, id=None, data=None):
         try:
-            ControlPath.delete_data(id and data)
+            ControlPath.delete_data(id or data)
             return 'Dado deletado com sucesso'
         except:
             return 'Erro ao deletar'
