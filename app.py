@@ -28,7 +28,8 @@ class Itens(BaseModel):
    url: str
    pathInput: str
    pathBtn: str
-   pathTag: str
+   pathTag1: str
+   pathTag2: str
 
 
 @app.post("/host")

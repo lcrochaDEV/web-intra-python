@@ -50,7 +50,7 @@ uvicorn app:app --reload
 
 ### Projeto em andamento
 
-Este projeto visa automatizar, buscar e armazenamento de dados, ele é chamdo por metodos CRUD onde cada método verifica se existe esse dado já na base de dados JSON, caso não exista ele busca esses dados no site SMARTPLAN
+Este projeto visa automatizar, busca e armazenamento de dados, ele é chamado por métodos CRUD, onde cada método verifica se existe esse dado já na base de dados JSON, caso não exista ele busca esses dados no site SMARTPLAN
 
 #### Envio de um unico comando por http://127.0.0.1:8000/host
 ```json
