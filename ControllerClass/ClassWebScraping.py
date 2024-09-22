@@ -9,11 +9,11 @@ class ControllerAPI:
 	def varrerDados(site, url, pathInput, pathBtn, pathTag1, pathTag2=None):
 		try:
 			print('Varrer')
-			#driver = webdriver.Remote("http://localhost:4444", options=webdriver.ChromeOptions())
+			driver = webdriver.Remote("http://localhost:8000", options=webdriver.ChromeOptions())
 			#options = webdriver.ChromeOptions()
 			#options.add_argument("--headless=new")
 			#driver = webdriver.Chrome(options=options)
-			driver = webdriver.Firefox()
+			#driver = webdriver.Firefox()
 			driver.get(url)
 			driver.implicitly_wait(5) 
 			data_e_hora_atuais = datetime.now()

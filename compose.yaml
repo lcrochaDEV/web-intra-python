@@ -1,0 +1,25 @@
+networks:
+  intranet:
+    driver: bridge
+
+services:
+  selenium/standalone-chrome:
+    image: selenium/standalone-chrome:latest
+    hostname: chrome
+    networks:
+      - intranet
+    ports:
+      - 4444:4444
+      - 7900:7900
+    privileged: true
+    shm_size: 2g
+
+services:
+  fastAPI:
+    build: .
+    volumes:
+      - ".:/app"
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
