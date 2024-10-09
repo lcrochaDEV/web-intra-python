@@ -76,7 +76,8 @@ let bodyObj = {
     url: 'https://www.siterastreio.com.br/cep/2355180',
     pathInput: '//input[contains(text(), "")]',
     pathBtn: '//div[1]/div/button',
-    pathTag: '/html/body/div/div[1]/main/div[2]/div[2]/div[2]/h2'
+    pathTag1: '/html/body/div/div[1]/main/div[2]/div[2]/div[2]/h2',
+    pathTag2: ""
 }
 
 let conectApi = async (url, obj) => {

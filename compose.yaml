@@ -1,7 +1,6 @@
 networks:
   intranet:
     driver: bridge
-    external: true
 
 services:
   selenium-standalone-chrome:
@@ -16,15 +15,15 @@ services:
     shm_size: 2g
 
   fastapi-app:
+    image: fastapi_celery_example_web
     container_name: fastapi
     hostname: fastapi
     build:
       context: .
-    image: fastapi_celery_example_web
     volumes:
       - .:/app
     ports:
-      - 8000:8000
+      - 8002:8002
     restart: always
     networks:
       - intranet

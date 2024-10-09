@@ -9,7 +9,7 @@ class ControllerAPI:
 	def varrerDados(site, url, pathInput, pathBtn, pathTag1, pathTag2=None):
 		try:
 			print('Varrer')
-			driver = webdriver.Remote("http://localhost:4444", options=webdriver.ChromeOptions())
+			driver = webdriver.Remote("http://172.21.0.3:4444", options=webdriver.ChromeOptions())
 			#options = webdriver.ChromeOptions()
 			#options.add_argument("--headless=new")
 			#driver = webdriver.Chrome(options=options)
@@ -21,8 +21,9 @@ class ControllerAPI:
 			print(f'{site} {data_e_hora_em_texto}')
 			driver.execute_script(f'document.querySelector("input").value = {site}')
 			driver.implicitly_wait(5) 
-			#xpathInput = driver.find_element(By.XPATH, pathInput)
+			xpathInput = driver.find_element(By.XPATH, pathInput)
 			xpathbtn = driver.find_element(By.XPATH, pathBtn).click()
+			time.sleep(5)
 			xpathDataEnd1 = driver.find_element(By.XPATH, pathTag1)
 			if pathTag2 != "":
 				xpathDataEnd2 = driver.find_element(By.XPATH, pathTag2)
