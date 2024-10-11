@@ -2,14 +2,14 @@ from selenium import webdriver;
 from selenium.webdriver.common.by import By;
 from datetime import datetime
 import time as time
-
+import os
 
 class ControllerAPI:
 	@staticmethod
 	def varrerDados(site, url, pathInput, pathBtn, pathTag1, pathTag2=None):
 		try:
 			print('Varrer')
-			driver = webdriver.Remote("http://172.21.0.3:4444", options=webdriver.ChromeOptions())
+			driver = webdriver.Remote('172.1.0.4:4444', options=webdriver.ChromeOptions())
 			#options = webdriver.ChromeOptions()
 			#options.add_argument("--headless=new")
 			#driver = webdriver.Chrome(options=options)

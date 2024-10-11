@@ -1,18 +1,26 @@
 networks:
   intranet:
     driver: bridge
-
+    ipam:
+      config:
+        - subnet: 172.1.0.0/24
+          gateway: 172.1.0.1
+          
 services:
   selenium-standalone-chrome:
     image: selenium/standalone-chrome:latest
+    container_name: chrome
     hostname: chrome
     networks:
-      - intranet
+      intranet:
+        ipv4_address: 172.1.0.4
     ports:
       - 4444:4444
       - 7900:7900
     privileged: true
     shm_size: 2g
+    environment:
+      - PASSW=secret
 
   fastapi-app:
     image: fastapi_celery_example_web
@@ -25,5 +33,9 @@ services:
     ports:
       - 8002:8002
     restart: always
+    environment:
+      - IP_SELENIUM=172.1.0.4
+      - PORT=4444
     networks:
-      - intranet
+      intranet:
+        ipv4_address: 172.1.0.3
