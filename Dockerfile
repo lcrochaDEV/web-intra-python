@@ -48,3 +48,9 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8002"]
 
 #verifica dado(IP) do conteiner "tupologia de rede"
 #docker network inspect <conteiner>
+
+#verifica logs em tempo real de um conteiner
+#sudo docker logs --follow <conteiner>
+
+#limpa conteiners inativos em cache
+#sudo docker logs --follow 1c
